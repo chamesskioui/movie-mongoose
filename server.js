@@ -1,0 +1,13 @@
+const express=require("express")
+const cors=require("cors")
+const config = require("./configuration/config")
+const movierouter = require("./router/router")
+const actorrouter = require("./router/actorrouter")
+const app=express()
+const port=5000
+app.use(express.json())
+app.use(cors())
+app.use("/",movierouter)
+app.use("/actor",actorrouter)
+app.listen(port,console.log("sever is running"))
+config()
